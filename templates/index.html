@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+  <meta charset="UTF-8">
+  <title>QR Code generator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h1>QR Code generator</h1>
+  <form id="f">
+    <label>Data
+      <textarea id="data" rows="4">https://my-ulr.com</textarea>
+    </label>
+
+    <div class="row">
+      <label>Box <input id="box" type="number" value="5" min="1"></label>
+      <label>Border <input id="border" type="number" value="4" min="0"></label>
+      <label>Error correction
+        <select id="error_correction">
+          <option value="L">L</option>
+          <option value="M" selected>M</option>
+          <option value="Q">Q</option>
+          <option value="H">H</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="row">
+      <label>Fill <input id="fill" type="color" value="#000000"></label>
+      <label>Background <input id="back" type="color" value="#ffffff"></label>
+    </div>
+
+    <div class="row">
+      <label>Scale (SVG) <input id="scale" type="number" value="5" min="1"></label>
+      <label>Fill (SVG) <input id="fill_svg" type="color" value="#000000"></label>
+      <label>Background (SVG) <input id="background_svg" type="color" value="#ffffff"></label>
+    </div>
+
+    <button type="submit">Update preview</button>
+    <button type="button" id="download-png" disabled>Download PNG</button>
+    <button type="button" id="download-svg" disabled>Download SVG</button>
+  </form>
+
+  <h2>PNG preview</h2>
+  <div id="preview"><img id="img" alt="QR PNG preview"></div>
+
+  <h2>SVG preview</h2>
+  <div id="preview-svg">
+    <img id="svgimg" title="QR SVG preview"></img>
+  </div>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+Flask>=2.3
+qrcode[pil]>=7.3
+Pillow>=9.0
+segno>=1.6
